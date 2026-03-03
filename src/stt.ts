@@ -1,4 +1,5 @@
 import { mergeFrames, stt, type APIConnectOptions, type AudioBuffer } from '@livekit/agents';
+import type { AudioFrame } from '@livekit/rtc-node';
 
 export interface FakeSTTScriptStep {
   text: string;
@@ -27,6 +28,8 @@ export interface FakeSTTOptions {
   offset?: number;
   emitRecognitionUsage?: boolean;
   sampleRate?: number;
+  silenceDurationMsToCommit?: number;
+  silenceAmplitudeThreshold?: number;
 }
 
 interface NormalizedStep {
@@ -52,6 +55,8 @@ interface ResolvedOptions {
   initialOffset: number;
   emitRecognitionUsage: boolean;
   sampleRate: number;
+  silenceDurationMsToCommit: number;
+  silenceAmplitudeThreshold: number;
 }
 
 const DEFAULT_SCRIPT: FakeSTTScriptSegmentInput[] = [
@@ -74,6 +79,8 @@ const DEFAULT_OPTIONS: Required<Omit<FakeSTTOptions, 'script'>> = {
   offset: 0,
   emitRecognitionUsage: false,
   sampleRate: 16000,
+  silenceDurationMsToCommit: 400,
+  silenceAmplitudeThreshold: 150,
 };
 
 export class STT extends stt.STT {
@@ -157,6 +164,8 @@ export class SpeechStream extends stt.SpeechStream {
   #utteranceCount = 0;
   #pendingAudioDuration = 0;
   #hasPendingAudio = false;
+  #hasDetectedSpeech = false;
+  #pendingSilenceDurationMs = 0;
   #processedAudioDuration = 0;
 
   constructor(sttImpl: STT, options: ResolvedOptions, connOptions?: APIConnectOptions) {
@@ -178,10 +187,30 @@ export class SpeechStream extends stt.SpeechStream {
         }
 
         const duration = frameDurationSeconds(item.samplesPerChannel, item.sampleRate);
-        if (duration > 0) {
-          this.#hasPendingAudio = true;
-          this.#pendingAudioDuration += duration;
+        if (duration <= 0) {
+          continue;
         }
+
+        this.#hasPendingAudio = true;
+        this.#pendingAudioDuration += duration;
+
+        const frameDurationMs = duration * 1000;
+        if (isSilentAudioFrame(item, this.#options.silenceAmplitudeThreshold)) {
+          if (this.#hasDetectedSpeech) {
+            this.#pendingSilenceDurationMs += frameDurationMs;
+          }
+
+          if (
+            this.#hasDetectedSpeech &&
+            this.#pendingSilenceDurationMs >= this.#options.silenceDurationMsToCommit
+          ) {
+            await this.#emitPendingUtterance();
+          }
+          continue;
+        }
+
+        this.#hasDetectedSpeech = true;
+        this.#pendingSilenceDurationMs = 0;
       }
 
       await this.#emitPendingUtterance();
@@ -298,7 +327,9 @@ export class SpeechStream extends stt.SpeechStream {
 
   #resetPendingAudio(): void {
     this.#hasPendingAudio = false;
+    this.#hasDetectedSpeech = false;
     this.#pendingAudioDuration = 0;
+    this.#pendingSilenceDurationMs = 0;
   }
 }
 
@@ -325,6 +356,14 @@ function resolveOptions(options: FakeSTTOptions): ResolvedOptions {
     initialOffset,
     emitRecognitionUsage: options.emitRecognitionUsage ?? DEFAULT_OPTIONS.emitRecognitionUsage,
     sampleRate: clampNumber(options.sampleRate ?? DEFAULT_OPTIONS.sampleRate, 1),
+    silenceDurationMsToCommit: clampNumber(
+      options.silenceDurationMsToCommit ?? DEFAULT_OPTIONS.silenceDurationMsToCommit,
+      0
+    ),
+    silenceAmplitudeThreshold: clampNumber(
+      options.silenceAmplitudeThreshold ?? DEFAULT_OPTIONS.silenceAmplitudeThreshold,
+      0
+    ),
   };
 }
 
@@ -392,6 +431,21 @@ function frameDurationSeconds(samplesPerChannel: number, sampleRate: number): nu
   }
 
   return samplesPerChannel / sampleRate;
+}
+
+function isSilentAudioFrame(frame: AudioFrame, silenceAmplitudeThreshold: number): boolean {
+  if (frame.samplesPerChannel <= 0) {
+    return true;
+  }
+
+  for (let i = 0; i < frame.data.length; i++) {
+    const sample = frame.data[i];
+    if (sample !== undefined && Math.abs(sample) > silenceAmplitudeThreshold) {
+      return false;
+    }
+  }
+
+  return true;
 }
 
 function abortError(): Error {
