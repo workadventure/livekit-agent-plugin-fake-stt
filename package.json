@@ -1,0 +1,69 @@
+{
+  "name": "@workadventure/livekit-agents-plugin-fake-stt",
+  "version": "0.1.0",
+  "description": "Deterministic fake STT provider for LiveKit Agents tests",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "node": ">=24"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/workadventure/livekit-agents-plugin-fake-stt.git"
+  },
+  "homepage": "https://github.com/workadventure/livekit-agents-plugin-fake-stt#readme",
+  "bugs": {
+    "url": "https://github.com/workadventure/livekit-agents-plugin-fake-stt/issues"
+  },
+  "keywords": [
+    "livekit",
+    "agents",
+    "stt",
+    "speech-to-text",
+    "testing",
+    "deterministic"
+  ],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "clean": "rm -rf dist coverage",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.test.json",
+    "lint": "eslint src test examples eslint.config.js vitest.config.ts tsup.config.ts",
+    "format": "prettier --check .",
+    "format:write": "prettier --write .",
+    "test": "vitest run --coverage",
+    "test:watch": "vitest",
+    "prepack": "npm run clean && npm run build"
+  },
+  "peerDependencies": {
+    "@livekit/agents": "^1.0.48",
+    "@livekit/rtc-node": "^0.13.24"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@livekit/agents": "^1.0.48",
+    "@livekit/rtc-node": "^0.13.24",
+    "@types/node": "^24.10.1",
+    "@vitest/coverage-v8": "^4.0.0",
+    "eslint": "^9.39.1",
+    "globals": "^16.5.0",
+    "prettier": "^3.6.2",
+    "tsup": "^8.5.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.46.2",
+    "vitest": "^4.0.0"
+  }
+}
