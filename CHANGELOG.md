@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.2...v0.2.3) (2026-03-04)
+
+
+### Bug Fixes
+
+* Fixing release please workflow ([7768136](https://github.com/workadventure/livekit-agent-plugin-fake-stt/commit/77681366d6f64bf94440416e4adff83763f0f798))
+
 ## [0.2.2](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.1...v0.2.2) (2026-03-04)
 
 
