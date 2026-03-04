@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.7](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.6...v0.2.7) (2026-03-04)
+
+
+### Bug Fixes
+
+* still trying to get autodeploy to work ([faac4ac](https://github.com/workadventure/livekit-agent-plugin-fake-stt/commit/faac4ac8dc74ccf319549c89b71aa0061264955f))
+
 ## [0.2.6](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.5...v0.2.6) (2026-03-04)
 
 
