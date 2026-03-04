@@ -1,5 +1,5 @@
 {
-  "name": "@workadventure/livekit-agents-plugin-fake-stt",
+  "name": "@workadventure/livekit-agent-plugin-fake-stt",
   "version": "0.2.7",
   "description": "Deterministic fake STT provider for LiveKit Agents tests",
   "type": "module",
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/workadventure/livekit-agents-plugin-fake-stt.git"
+    "url": "git+https://github.com/workadventure/livekit-agent-plugin-fake-stt.git"
   },
-  "homepage": "https://github.com/workadventure/livekit-agents-plugin-fake-stt#readme",
+  "homepage": "https://github.com/workadventure/livekit-agent-plugin-fake-stt#readme",
   "bugs": {
-    "url": "https://github.com/workadventure/livekit-agents-plugin-fake-stt/issues"
+    "url": "https://github.com/workadventure/livekit-agent-plugin-fake-stt/issues"
   },
   "keywords": [
     "livekit",
