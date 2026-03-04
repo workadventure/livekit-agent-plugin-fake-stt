@@ -1,4 +1,4 @@
-# @workadventure/livekit-agents-plugin-fake-stt
+# @workadventure/livekit-agent-plugin-fake-stt
 
 Deterministic fake STT provider for `@livekit/agents`.
 
@@ -17,7 +17,7 @@ streaming STT events without calling external APIs.
 ## Install
 
 ```bash
-npm install @workadventure/livekit-agents-plugin-fake-stt
+npm install @workadventure/livekit-agent-plugin-fake-stt
 ```
 
 Peer requirements:
@@ -30,7 +30,7 @@ Peer requirements:
 ```ts
 import { stt } from '@livekit/agents';
 import type { AudioFrame } from '@livekit/rtc-node';
-import { STT } from '@workadventure/livekit-agents-plugin-fake-stt';
+import { STT } from '@workadventure/livekit-agent-plugin-fake-stt';
 
 const fakeStt = new STT({
   emitRecognitionUsage: true,
@@ -77,7 +77,7 @@ Segments are reused in deterministic round-robin order.
 ## Configuration
 
 ```ts
-import { STT } from '@workadventure/livekit-agents-plugin-fake-stt';
+import { STT } from '@workadventure/livekit-agent-plugin-fake-stt';
 
 const fakeStt = new STT({
   language: 'en-US',

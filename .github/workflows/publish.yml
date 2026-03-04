@@ -11,7 +11,7 @@ permissions:
 
 jobs:
   publish:
-    if: github.repository == 'workadventure/livekit-agents-plugin-fake-stt'
+    if: github.repository == 'workadventure/livekit-agent-plugin-fake-stt'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

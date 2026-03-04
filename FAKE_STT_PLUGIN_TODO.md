@@ -77,7 +77,7 @@ Script should support:
 
 ## Backlog
 
-- [ ] `P00` Repository bootstrap
+- [x] `P00` Repository bootstrap
   - Create new GitHub repository.
   - Set project metadata:
     - MIT license
@@ -88,7 +88,7 @@ Script should support:
   - Acceptance:
     - repository is initialized with baseline OSS files.
 
-- [ ] `P01` Package scaffold
+- [x] `P01` Package scaffold
   - Create npm package skeleton for `@workadventure/livekit-agents-plugin-fake-stt`:
     - `package.json`
     - `tsconfig.json`
@@ -99,7 +99,7 @@ Script should support:
   - Acceptance:
     - package builds and local import works.
 
-- [ ] `P02` Implement STT class
+- [x] `P02` Implement STT class
   - Implement `STT` extending `stt.STT`.
   - Capabilities:
     - `streaming: true`
@@ -111,7 +111,7 @@ Script should support:
   - Acceptance:
     - class instantiates and returns a stream object.
 
-- [ ] `P03` Implement SpeechStream engine
+- [x] `P03` Implement SpeechStream engine
   - Implement `SpeechStream` extending `stt.SpeechStream`.
   - Deterministic event emission sequence:
     - start, interim updates, final updates, end
@@ -119,7 +119,7 @@ Script should support:
   - Acceptance:
     - for same config/input, emitted events are strictly deterministic.
 
-- [ ] `P04` Unit tests
+- [x] `P04` Unit tests
   - Add test suite for:
     - event order
     - finality transitions
@@ -135,7 +135,7 @@ Script should support:
   - Acceptance:
     - integration smoke test passes locally and in CI.
 
-- [ ] `P06` API docs and examples
+- [x] `P06` API docs and examples
   - Write complete README:
     - install
     - usage
@@ -145,7 +145,7 @@ Script should support:
   - Acceptance:
     - user can install and use plugin from README alone.
 
-- [ ] `P07` Linting, formatting, static checks
+- [x] `P07` Linting, formatting, static checks
   - Add:
     - ESLint
     - Prettier
@@ -154,7 +154,7 @@ Script should support:
   - Acceptance:
     - code quality checks enforced consistently.
 
-- [ ] `P08` CI pipeline (GitHub Actions)
+- [x] `P08` CI pipeline (GitHub Actions)
   - Create workflows for:
     - install + lint + typecheck + test on PR
     - Node 24
