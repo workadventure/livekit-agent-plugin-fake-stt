@@ -58,7 +58,7 @@
     "@livekit/rtc-node": "^0.13.24",
     "@types/node": "^22.0.0",
     "@vitest/coverage-v8": "^4.0.0",
-    "eslint": "^9.39.1",
+    "eslint": "^10.0.2",
     "globals": "^17.4.0",
     "prettier": "^3.6.2",
     "tsup": "^8.5.0",
