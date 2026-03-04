@@ -15,8 +15,8 @@ This TODO is written to be reusable in a completely new project.
 
 ## Fixed Project Decisions
 
-- npm package: `@workadventure/livekit-agents-plugin-fake-stt`
-- GitHub repository: `workadventure/livekit-agents-plugin-fake-stt`
+- npm package: `@workadventure/livekit-agent-plugin-fake-stt`
+- GitHub repository: `workadventure/livekit-agent-plugin-fake-stt`
 - license: MIT
 - runtime/CI Node version: 24
 - module format: ESM-only
@@ -48,7 +48,7 @@ This TODO is written to be reusable in a completely new project.
 
 New standalone package:
 
-- `@workadventure/livekit-agents-plugin-fake-stt`
+- `@workadventure/livekit-agent-plugin-fake-stt`
 
 ### Runtime behavior
 
@@ -89,7 +89,7 @@ Script should support:
     - repository is initialized with baseline OSS files.
 
 - [x] `P01` Package scaffold
-  - Create npm package skeleton for `@workadventure/livekit-agents-plugin-fake-stt`:
+  - Create npm package skeleton for `@workadventure/livekit-agent-plugin-fake-stt`:
     - `package.json`
     - `tsconfig.json`
     - build config (`tsup` or `tsc`)
