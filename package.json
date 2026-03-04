@@ -1,6 +1,6 @@
 {
   "name": "@workadventure/livekit-agents-plugin-fake-stt",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Deterministic fake STT provider for LiveKit Agents tests",
   "type": "module",
   "license": "MIT",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.5](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.4...v0.2.5) (2026-03-04)
+
+
+### Bug Fixes
+
+* add Node 22 compatibility ([f5fbf68](https://github.com/workadventure/livekit-agent-plugin-fake-stt/commit/f5fbf68f4af937747c920f3b7e55826b17d94196))
+
 ## [0.2.4](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.3...v0.2.4) (2026-03-04)
 
 
