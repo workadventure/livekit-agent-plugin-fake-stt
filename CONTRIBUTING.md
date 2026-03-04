@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-- Node.js 24+
+- Node.js 22+
 - npm 10+
 
 ## Setup

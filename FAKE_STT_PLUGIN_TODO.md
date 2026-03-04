@@ -18,7 +18,7 @@ This TODO is written to be reusable in a completely new project.
 - npm package: `@workadventure/livekit-agent-plugin-fake-stt`
 - GitHub repository: `workadventure/livekit-agent-plugin-fake-stt`
 - license: MIT
-- runtime/CI Node version: 24
+- runtime/CI Node version: 22+
 - module format: ESM-only
 - TypeScript/build config: modern defaults
 - release policy: stable releases from `main` only
@@ -95,7 +95,7 @@ Script should support:
     - build config (`tsup` or `tsc`)
     - `src/index.ts`
   - Configure exports for ESM-only package.
-  - Set `engines.node` for Node 24.
+  - Set `engines.node` for Node 22+.
   - Acceptance:
     - package builds and local import works.
 
@@ -157,7 +157,7 @@ Script should support:
 - [x] `P08` CI pipeline (GitHub Actions)
   - Create workflows for:
     - install + lint + typecheck + test on PR
-    - Node 24
+    - Node 22 and 24
     - build artifact verification
   - Add dependency cache and concurrency controls.
   - Acceptance:
@@ -216,5 +216,5 @@ Script should support:
 - Plugin is published on npm.
 - Source and releases are published on GitHub.
 - CI/CD covers lint, typecheck, tests, build, versioning, and publish.
-- CI/CD runs on Node 24 and includes unit + integration tests.
+- CI/CD runs on Node 22 and 24 and includes unit + integration tests.
 - The package is usable as a deterministic STT provider in LiveKit Agents.

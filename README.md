@@ -20,6 +20,8 @@ streaming STT events without calling external APIs.
 npm install @workadventure/livekit-agent-plugin-fake-stt
 ```
 
+Runtime requirement: Node.js 22+.
+
 Peer requirements:
 
 - `@livekit/agents`
