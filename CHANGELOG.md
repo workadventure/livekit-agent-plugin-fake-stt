@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.8](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.7...v0.2.8) (2026-03-04)
+
+
+### Bug Fixes
+
+* Fixing package name ([0b812d4](https://github.com/workadventure/livekit-agent-plugin-fake-stt/commit/0b812d4e212d7b37c3a170cb415d20ed1432fd1d))
+
 ## [0.2.7](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.6...v0.2.7) (2026-03-04)
 
 
