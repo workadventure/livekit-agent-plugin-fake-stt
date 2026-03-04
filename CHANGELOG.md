@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.6](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.5...v0.2.6) (2026-03-04)
+
+
+### Bug Fixes
+
+* Trying to fix automated deployment ([c4e4aee](https://github.com/workadventure/livekit-agent-plugin-fake-stt/commit/c4e4aee489f916a869ec2037121635d6180b7114))
+
 ## [0.2.5](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.4...v0.2.5) (2026-03-04)
 
 
