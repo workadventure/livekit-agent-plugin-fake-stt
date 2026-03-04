@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.3...v0.2.4) (2026-03-04)
+
+
+### Bug Fixes
+
+* Trying to fox release please releases ([4de7a0c](https://github.com/workadventure/livekit-agent-plugin-fake-stt/commit/4de7a0ccbcdd202ce5003db1e8b661cfacc1d000))
+
 ## [0.2.3](https://github.com/workadventure/livekit-agent-plugin-fake-stt/compare/v0.2.2...v0.2.3) (2026-03-04)
 
 
