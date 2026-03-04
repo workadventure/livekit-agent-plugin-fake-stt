@@ -53,7 +53,7 @@
     "@livekit/rtc-node": "^0.13.24"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^10.0.1",
     "@livekit/agents": "^1.0.48",
     "@livekit/rtc-node": "^0.13.24",
     "@types/node": "^22.0.0",
